@@ -1,18 +1,24 @@
-import React from "react";
-import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 
-import Categories, { categories } from "./components/Categories";
-import DishDetails from './components/DishDetails';
-import Main from "./components/Main";
+import Main from './components/Main';
+import DishPage from './components/DishPage';
+import { CartProvider } from './components/CartContext';
+import CartPage from './components/CartPage'
+import { dishesData } from './components/Main';
 
-const App = () => {
+import './fonts.css';
+
+function App() {
   return (
-    <Router>
-      <Routes>
-        <Route path="/" element={<Main />} />
-        <Route path="/dish/:id" element={<DishDetails dishes={categories.flatMap(cat => cat.dishes)} />} />
-      </Routes>
-    </Router>
+    <CartProvider>
+      <Router>
+        <Routes>
+          <Route path="/" element={<Main dishes={dishesData} />} />
+          <Route path="/dish/:id" element={<DishPage dishes={dishesData} />} />
+          <Route path="/cart" element={<CartPage />} />
+        </Routes>
+      </Router>
+    </CartProvider>
   );
 }
 

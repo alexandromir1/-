@@ -93,13 +93,17 @@ const Categories = ({ categories, dishes }) => {
                                                 <div className='flex justify-between bg-[#E32C0B] text-[#FFF7EA] text-xs rounded-md py-2 px-8 w-[138px]'>
                                                     <button onClick={() => {
                                                         const currentQuantity = dishQuantities[dish.id] || 0;
-                                                        if (currentQuantity > 1) { 
+                                                        if (currentQuantity > 1) {
                                                             const newQuantity = currentQuantity - 1;
                                                             changeQuantity(dish.id, -1);
                                                             setDishQuantities(prev => ({ ...prev, [dish.id]: newQuantity }));
                                                         } else if (currentQuantity === 1) {
                                                             removeFromCart(dish.id);
-                                                            setDishQuantities(prev => ({ ...prev, [dish.id]: 0 }));
+                                                            setDishQuantities(prev => {
+                                                                const updatedQuantities = { ...prev, [dish.id]: 0 };
+                                                                setShowAddToCartButton(prev => ({ ...prev, [dish.id]: false }));
+                                                                return updatedQuantities;
+                                                            });
                                                         }
                                                     }} disabled={(dishQuantities[dish.id] || 0) <= 0}>-</button>
                                                     <span>

@@ -22,10 +22,12 @@ export const CartProvider = ({ children }) => {
 
     const removeFromCart = (dishId) => {
         setCart(prev => {
-            const { [dishId]: _, ...rest } = prev;
+            const { [dishId]: removedDish, ...rest } = prev;
+            if (removedDish) {
+                setCartItemCount(count => count - removedDish.count);
+            }
             return rest;
         });
-        setCartItemCount(count => count >= 0 ? count - 1 : 0);
     };
 
     const changeQuantity = (dishId, change) => {

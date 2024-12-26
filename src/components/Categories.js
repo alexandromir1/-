@@ -31,17 +31,17 @@ const Categories = ({ categories, dishes }) => {
             }
         }
     };
-    const handleQuantityChange = (id, change) => {
-        console.log(`handleQuantityChange вызвана для ID: ${id}, Изменение: ${change}`);
-        setDishQuantities(prev => {
-            const newQuantity = Math.max((prev[id] || 0) + change, 0);
-            console.log(`Dish ID: ${id}, Change: ${change}, New Quantity: ${newQuantity}`);
-            return {
-                ...prev,
-                [id]: newQuantity,
-            };
-        });
-    };
+    // const handleQuantityChange = (id, change) => {
+    //     console.log(`handleQuantityChange вызвана для ID: ${id}, Изменение: ${change}`);
+    //     setDishQuantities(prev => {
+    //         const newQuantity = Math.max((prev[id] || 0) + change, 0);
+    //         console.log(`Dish ID: ${id}, Change: ${change}, New Quantity: ${newQuantity}`);
+    //         return {
+    //             ...prev,
+    //             [id]: newQuantity,
+    //         };
+    //     });
+    // };
 
 
     useEffect(() => {
@@ -90,7 +90,7 @@ const Categories = ({ categories, dishes }) => {
                                         </Link>
                                         <div className='flex items-center'>
                                             {showAddToCartButton[dish.id] ? (
-                                                <div className='flex justify-between bg-[#E32C0B] text-[#FFF7EA] text-xs rounded-md py-2 px-8 w-[138px]'>
+                                                <div className='flex justify-between bg-[#E32C0B] text-[#FFF7EA] text-xs rounded-md py-2 px-8 w-[140px]'>
                                                     <button onClick={() => {
                                                         const currentQuantity = dishQuantities[dish.id] || 0;
                                                         if (currentQuantity > 1) {
@@ -122,7 +122,7 @@ const Categories = ({ categories, dishes }) => {
                                                     setShowAddToCartButton(prev => ({ ...prev, [dish.id]: true }));
                                                     addToCart({ ...dish, count: 1 });
                                                     setDishQuantities(prev => ({ ...prev, [dish.id]: 1 }));
-                                                }} className='bg-[#E32C0B] text-[#FFF7EA] text-xs rounded-md py-2 px-8'>
+                                                }} className='bg-[#E32C0B] text-[#FFF7EA] text-xs rounded-md py-2 px-8 w-[140px]'>
                                                     В корзину
                                                 </button>
                                             )}

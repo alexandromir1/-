@@ -15,3 +15,7 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.hidden-scroll {
+  scrollbar-width: none; /* Скрыть полосу прокрутки в Firefox */
+}

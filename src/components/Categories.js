@@ -63,7 +63,8 @@ const Categories = ({ categories, dishes }) => {
                 <select
                     value={selectedCategory}
                     onChange={handleChange}
-                    className='h-14 rounded-md border-[#F5E6CC] border-2 bg-[#FFF7EA] text-[#E32C0B] font-medium text-xl'>
+                    className='h-14 rounded-md border-[#F5E6CC] border-2 bg-[#FFF7EA] text-[#E32C0B] font-medium text-xl'
+                >
                     <option value="">Выберите категорию</option>
                     {categories.map(category => (
                         <option key={category.id} value={category.name}>{category.name}</option>

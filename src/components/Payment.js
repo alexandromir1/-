@@ -17,32 +17,30 @@ const Payment = () => {
         const { name, value } = e.target;
         setFormData({
             ...formData,
-            [name]: value
+            [name]: value // Corrected this line to update the specific form field
         });
     };
 
-    // Функция для отправки формы
     const handleSubmit = async (e) => {
-        e.preventDefault();
-
-        // Здесь можно выполнить запрос на сервер для отправки письма
-        // try {
-        //     const response = await fetch('/api/send', {
-        //         method: 'POST',
-        //         headers: {
-        //             'Content-Type': 'application/json'
-        //         },
-        //         body: JSON.stringify({ ...formData, totalPrice })
-        //     });
-        //     const result = await response.json();
-        //     if (result.success) {
-        //         alert('Сообщение успешно отправлено!');
-        //     } else {
-        //         alert('Ошибка при отправке сообщения.');
-        //     }
-        // } catch (error) {
-        //     alert('Ошибка: ' + error.message);
-        // }
+        e.preventDefault(); // Prevents default form submission behavior
+        try {
+            const response = await fetch('/api/payment', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ ...formData, totalPrice }), // Including totalPrice in body
+            });
+            const result = await response.json();
+            if (result.success) {
+                alert('Сообщение успешно отправлено!');
+                navigate('/'); // Redirecting to home after successful submission
+            } else {
+                alert('Ошибка при отправке сообщения.');
+            }
+        } catch (error) {
+            alert('Ошибка: ' + error.message);
+        }
     };
 
     return (

@@ -1,0 +1,18 @@
+{
+  "files": {
+    "main.css": "/chaihana/static/css/main.ef3a6539.css",
+    "main.js": "/chaihana/static/js/main.79b4a69e.js",
+    "static/media/Raleway.ttf": "/chaihana/static/media/Raleway.d8040b0cc740dda7550a.ttf",
+    "static/media/foodImage.png": "/chaihana/static/media/foodImage.e35151ee5531d9e66c25.png",
+    "static/media/plov.png": "/chaihana/static/media/plov.df1360f8c0da25adadf8.png",
+    "static/media/AsiaAS.ttf": "/chaihana/static/media/AsiaAS.7f8ecd8ef000f765c344.ttf",
+    "index.html": "/chaihana/index.html",
+    "static/media/backArrow.svg": "/chaihana/static/media/backArrow.2f2bf45f7c361b79b74d0b2bba46af53.svg",
+    "main.ef3a6539.css.map": "/chaihana/static/css/main.ef3a6539.css.map",
+    "main.79b4a69e.js.map": "/chaihana/static/js/main.79b4a69e.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.ef3a6539.css",
+    "static/js/main.79b4a69e.js"
+  ]
+}
